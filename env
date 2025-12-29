@@ -1,0 +1,28 @@
+# === Ollama Configuration ===
+OLLAMA_MODEL=qwen3:30b-a3b-instruct-2507-q4_K_M
+
+# === Data Paths ===
+FOLDER_PATH=data
+FAISS_INDEX_PATH=data/faiss_index
+
+# === Device Configuration ===
+# Options: 'cpu', 'cuda', 'mps' (Mac)
+# Note: Use CPU if GPU causes issues (e.g., PyTorch sm_120 compatibility)
+EMBEDDING_DEVICE=cpu
+RERANK_DEVICE=cpu
+
+# === Retrieval Settings ===
+TOP_K=8
+RERANK_TOP_K=3
+USE_RERANKER=false
+
+# === Security ===
+# Generate key with: python -c "import secrets; print(secrets.token_urlsafe(32))"
+# Leave empty for development (no auth required)
+# API_KEY=your-secret-key-here-change-in-production
+
+# === RAG Relevance Threshold ===
+# Controls when to use documents vs pure LLM based on similarity score
+# Lower = stricter (only very similar documents), Higher = more lenient
+# Recommended values: 0.8 (strict), 1.5 (balanced), 2.0 (lenient)
+RAG_RELEVANCE_THRESHOLD=1.5
